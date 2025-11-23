@@ -38,7 +38,7 @@ class _CurrencyConvertMaterialPageState
               margin: const EdgeInsets.all(25.0),
               child: Text(
                 //result.toString(),
-                result.toStringAsFixed(2),
+                '\u{20B9} ${result.toStringAsFixed(2)}',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 45,
@@ -97,7 +97,9 @@ class _CurrencyConvertMaterialPageState
                   //shape: WidgetStatePropertyAll(CircleBorder()),
                   elevation: WidgetStatePropertyAll(15),
                 ),
-                child: Text("Convert"),
+                child: Text("Convert",style: TextStyle(
+                  fontWeight: FontWeight.bold
+                ),),
               ),
             ),
           ],
