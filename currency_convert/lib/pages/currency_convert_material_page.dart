@@ -33,11 +33,13 @@ class _CurrencyConvertMaterialPageState
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
+            Container(
               padding: const EdgeInsets.all(15.0),
+              margin: const EdgeInsets.all(25.0),
               child: Text(
                 //result.toString(),
                 result.toStringAsFixed(2),
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.bold,
