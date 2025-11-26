@@ -17,7 +17,20 @@ class _CurrencyConvertMaterialPageState
     extends State<CurrencyConvertMaterialPage> {
   double result = 0;
   final TextEditingController textEditingController = TextEditingController();
+  
+  void convert() {
+    double value = double.parse(textEditingController.text);
+    setState(() {
+      result = value * 89.62;
+    });
+  }
 
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,13 +92,8 @@ class _CurrencyConvertMaterialPageState
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 onPressed: () {
-                  final value = double.tryParse(textEditingController.text);
-                  if (value == null) return;
-                  setState(() {
-                    result = (value * (89.62));
-                  });
+                  convert();
                 },
-
                 style: ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll(Colors.blue[300]),
                   foregroundColor: WidgetStatePropertyAll(Colors.blue[900]),
