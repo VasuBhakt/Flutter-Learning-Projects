@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:weather_app/cards/hourly_weather_card.dart';
+import 'package:weather_app/cards/today_weather_card.dart';
 
 /*class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
@@ -49,40 +51,7 @@ class WeatherScreen extends StatelessWidget {
         child: Column(
           children: [
             // Main Card
-            SizedBox(
-              width: double.infinity,
-              child: Card(
-                elevation: 20,
-                color: Color.fromARGB(255, 59, 64, 87),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                    child: const Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            "300 F",
-                            style: TextStyle(
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 16),
-                          Icon(Icons.cloud, size: 64),
-                          SizedBox(height: 16),
-                          Text("Rain", style: TextStyle(fontSize: 20)),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            TodayWeatherCard(weather: "Rain", temperature: 300),
             const SizedBox(height: 20),
             Align(
               alignment: Alignment.centerLeft,
@@ -91,44 +60,31 @@ class WeatherScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             // weather forecast cards
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Card(
-                    color: Color.fromARGB(255, 59, 64, 87),
-                    elevation: 6,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: const Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            "09:00",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Icon(Icons.cloud, size: 32),
-                          const SizedBox(height: 8),
-                          Text("320", style: TextStyle(fontSize: 12)),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  HourlyWeatherCard(time : "09:00", temperature: 320,),
+                  HourlyWeatherCard(time : "12:00",temperature: 340,),
+                  HourlyWeatherCard(time : "15:00", temperature: 320,),
+                  HourlyWeatherCard(time : "18:00",temperature: 340,),
+                  HourlyWeatherCard(time : "21:00", temperature: 320,),
+                  HourlyWeatherCard(time : "00:00",temperature: 340,),
+                ],
+              ),
             ),
 
             const SizedBox(height: 20),
             // weather forecast cards
-            const Placeholder(fallbackHeight: 150),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: const Text(
+                "Additional Information",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ),
           ],
         ),
       ),
