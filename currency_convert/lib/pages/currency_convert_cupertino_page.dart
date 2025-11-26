@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class CurrencyConvertCupertinoPage extends StatefulWidget {
   const CurrencyConvertCupertinoPage({super.key});
@@ -47,12 +48,13 @@ class _CurrencyConvertCupertinoPageState
               child: CupertinoTextField(
                 controller: textEditingController,
                 decoration: BoxDecoration(
-                  color : CupertinoColors.white,
+                  color : CupertinoColors.transparent,
                   border : Border.all(),
                   borderRadius: BorderRadius.circular(40)
                 ),
                 placeholder: "Please enter amount in USD",
                 prefix: Icon(CupertinoIcons.money_dollar),
+                keyboardType: TextInputType.numberWithOptions(),
               ),
             ),
             Padding(
@@ -68,7 +70,7 @@ class _CurrencyConvertCupertinoPageState
                 color: CupertinoColors.systemCyan,
                 child: Text(
                   "Convert",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
                 ),
               ),
             ),
