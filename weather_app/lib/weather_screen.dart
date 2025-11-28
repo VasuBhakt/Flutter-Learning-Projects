@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:weather_app/cards/additional_info_card.dart';
 import 'package:weather_app/cards/hourly_weather_card.dart';
 import 'package:weather_app/cards/today_weather_card.dart';
 
@@ -85,6 +86,16 @@ class WeatherScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
+            Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  AdditionalInfoCard(attribute: "Pressure", value: 24),
+                  AdditionalInfoCard(attribute: "Wind Speed", value: 24),
+                  AdditionalInfoCard(attribute: "Visibility", value: 2.8),
+                ],
+              ),
+            )
           ],
         ),
       ),

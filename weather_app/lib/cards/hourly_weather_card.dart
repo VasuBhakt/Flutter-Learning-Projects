@@ -25,6 +25,8 @@ class HourlyWeatherCard extends StatelessWidget {
                 padding: EdgeInsets.all(16.0),
                 child: Column(
                   children: [
+                    Icon(Icons.cloud, size: 32),
+                    const SizedBox(height: 8),
                     Text(
                       time,
                       style: TextStyle(
@@ -32,8 +34,6 @@ class HourlyWeatherCard extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 8),
-                    Icon(Icons.cloud, size: 32),
                     const SizedBox(height: 8),
                     Text("$temperature", style: TextStyle(fontSize: 12)),
                   ],
