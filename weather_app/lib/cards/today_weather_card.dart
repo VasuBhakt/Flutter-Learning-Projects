@@ -26,7 +26,7 @@ class TodayWeatherCard extends StatelessWidget{
                       child: Column(
                         children: [
                           Text(
-                            "$temperature",
+                            "$temperature F",
                             style: TextStyle(
                               fontSize: 32,
                               fontWeight: FontWeight.bold,

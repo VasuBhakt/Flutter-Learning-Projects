@@ -37,12 +37,13 @@ class AdditionalInfoCard extends StatelessWidget {
                     fontWeight: FontWeight.bold
                   ),
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: 16),
                 _retIcon(),
+                const SizedBox(height: 16),
                 Text(
                   "$value",
                   style: TextStyle(
-                    fontSize: 12
+                    fontSize: 14
                   ),
                 )
               ],
