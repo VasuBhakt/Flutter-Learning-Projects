@@ -67,12 +67,12 @@ class WeatherScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  HourlyWeatherCard(time : "09:00", temperature: 320,),
-                  HourlyWeatherCard(time : "12:00",temperature: 340,),
-                  HourlyWeatherCard(time : "15:00", temperature: 320,),
-                  HourlyWeatherCard(time : "18:00",temperature: 340,),
-                  HourlyWeatherCard(time : "21:00", temperature: 320,),
-                  HourlyWeatherCard(time : "00:00",temperature: 340,),
+                  HourlyWeatherCard(time: "09:00", temperature: 320),
+                  HourlyWeatherCard(time: "12:00", temperature: 340),
+                  HourlyWeatherCard(time: "15:00", temperature: 320),
+                  HourlyWeatherCard(time: "18:00", temperature: 340),
+                  HourlyWeatherCard(time: "21:00", temperature: 320),
+                  HourlyWeatherCard(time: "00:00", temperature: 340),
                 ],
               ),
             ),
@@ -95,7 +95,7 @@ class WeatherScreen extends StatelessWidget {
                   AdditionalInfoCard(attribute: "Visibility", value: 2.8),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

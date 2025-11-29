@@ -17,7 +17,7 @@ class _CurrencyConvertMaterialPageState
     extends State<CurrencyConvertMaterialPage> {
   double result = 0;
   final TextEditingController textEditingController = TextEditingController();
-  
+
   void convert() {
     double value = double.parse(textEditingController.text);
     setState(() {
@@ -30,7 +30,7 @@ class _CurrencyConvertMaterialPageState
     textEditingController.dispose();
     super.dispose();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,9 +105,10 @@ class _CurrencyConvertMaterialPageState
                   //shape: WidgetStatePropertyAll(CircleBorder()),
                   elevation: WidgetStatePropertyAll(15),
                 ),
-                child: Text("Convert",style: TextStyle(
-                  fontWeight: FontWeight.bold
-                ),),
+                child: Text(
+                  "Convert",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           ],
