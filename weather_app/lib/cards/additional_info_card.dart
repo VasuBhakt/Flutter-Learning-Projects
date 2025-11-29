@@ -3,23 +3,14 @@ import 'package:flutter/material.dart';
 class AdditionalInfoCard extends StatelessWidget {
   final String attribute;
   final double value;
+  final Icon icon;
 
   const AdditionalInfoCard({
     super.key,
     required this.attribute,
     required this.value,
+    required this.icon,
   });
-  Icon _retIcon() {
-    double iconSize = 32;
-    if (attribute == "Humidity") {
-      return Icon(Icons.water_drop, size: iconSize);
-    } else if (attribute == "Wind Speed") {
-      return Icon(Icons.air, size: iconSize);
-    } else if (attribute == "Visibility") {
-      return Icon(Icons.remove_red_eye, size: iconSize);
-    }
-    return Icon(Icons.question_mark, size: iconSize);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +28,7 @@ class AdditionalInfoCard extends StatelessWidget {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 16),
-              _retIcon(),
+              icon,
               const SizedBox(height: 16),
               Text("$value", style: TextStyle(fontSize: 14)),
             ],

@@ -90,9 +90,9 @@ class WeatherScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  AdditionalInfoCard(attribute: "Humidity", value: 24),
-                  AdditionalInfoCard(attribute: "Wind Speed", value: 24),
-                  AdditionalInfoCard(attribute: "Visibility", value: 2.8),
+                  AdditionalInfoCard(attribute: "Humidity", value: 24, icon: Icon(Icons.water_drop),),
+                  AdditionalInfoCard(attribute: "Wind Speed", value: 24, icon: Icon(Icons.air),),
+                  AdditionalInfoCard(attribute: "Visibility", value: 2.8, icon: Icon(Icons.remove_red_eye),),
                 ],
               ),
             ),
