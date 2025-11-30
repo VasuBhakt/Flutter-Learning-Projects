@@ -16,3 +16,7 @@ A **Flutter Weather App** that fetches current weather and 3-hour interval forec
 
 ---
 
+## Screenshots and Video 
+
+![Screenshot](githubPics/weather_app.jpeg)
+![Video](githubPics/weather_app.mp4)
