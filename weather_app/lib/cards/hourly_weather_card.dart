@@ -50,7 +50,7 @@ class HourlyWeatherCard extends StatelessWidget {
     return SizedBox(
       width: 125,
       child: Card(
-        color: Color.fromARGB(255, 59, 64, 87),
+        //color: Color.fromARGB(255, 59, 64, 87),
         elevation: 6,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: ClipRRect(

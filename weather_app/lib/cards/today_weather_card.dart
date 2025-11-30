@@ -52,7 +52,7 @@ class TodayWeatherCard extends StatelessWidget {
       width: double.infinity,
       child: Card(
         elevation: 20,
-        color: Color.fromARGB(255, 59, 64, 87),
+        //color: Color.fromARGB(255, 59, 64, 87),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),

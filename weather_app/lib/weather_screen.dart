@@ -105,13 +105,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
               alignment: Alignment.centerLeft,
               child: DropdownButton<String>(
                 value: cityName,
-                dropdownColor: Colors.black,
                 underline: SizedBox(),
-                icon: Icon(Icons.keyboard_arrow_down, color: Colors.white),
+                icon: Icon(Icons.keyboard_arrow_down),
                 items: cities.map((city) {
                   return DropdownMenuItem(
                     value: city,
-                    child: Text(city, style: TextStyle(color: Colors.white)),
+                    child: Text(city,),
                   );
                 }).toList(),
                 onChanged: (value) {

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class AdditionalInfoCard extends StatelessWidget {
@@ -17,23 +19,25 @@ class AdditionalInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.transparent,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              Text(
-                attribute,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 16),
-              icon,
-              const SizedBox(height: 16),
-              Text("${value.toStringAsFixed(2)} $additional", style: TextStyle(fontSize: 16)),
-            ],
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                Text(
+                  attribute,
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 16),
+                icon,
+                const SizedBox(height: 16),
+                Text("${value.toStringAsFixed(2)} $additional", style: TextStyle(fontSize: 16)),
+              ],
+            ),
           ),
         ),
       ),
