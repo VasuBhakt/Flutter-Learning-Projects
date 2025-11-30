@@ -30,7 +30,7 @@ class AdditionalInfoCard extends StatelessWidget {
               const SizedBox(height: 16),
               icon,
               const SizedBox(height: 16),
-              Text("$value", style: TextStyle(fontSize: 14)),
+              Text(value.toStringAsFixed(2), style: TextStyle(fontSize: 16)),
             ],
           ),
         ),

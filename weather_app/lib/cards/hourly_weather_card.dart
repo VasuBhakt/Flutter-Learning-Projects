@@ -4,17 +4,31 @@ import 'package:flutter/material.dart';
 
 class HourlyWeatherCard extends StatelessWidget {
   final String time;
-  final int temperature;
+  final double temperature;
+  final String weather;
   const HourlyWeatherCard({
     super.key,
     required this.time,
     required this.temperature,
+    required this.weather,
   });
-
+  Icon _retIcon(String sky) {
+    if(sky=="Rain") {
+      return Icon(Icons.cloudy_snowing, size: 64,);
+    } 
+    if(sky=="Clouds") {
+      return Icon(Icons.cloud, size: 64,);
+    }
+    int hour = int.parse(time.split(":")[0]);
+    if(hour>=6 && hour<=18) {
+      return Icon(Icons.wb_sunny, size: 64,);
+    }
+    return Icon(Icons.nights_stay, size: 64,);
+  }
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 100,
+      width: 125,
       child: Card(
         color: Color.fromARGB(255, 59, 64, 87),
         elevation: 6,
@@ -27,7 +41,7 @@ class HourlyWeatherCard extends StatelessWidget {
               padding: EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  Icon(Icons.cloud, size: 32),
+                  _retIcon(weather),
                   const SizedBox(height: 8),
                   Text(
                     time,

@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class TodayWeatherCard extends StatelessWidget {
-  final int temperature;
+  final double temperature;
   final String weather;
   const TodayWeatherCard({
     super.key,
@@ -11,6 +11,15 @@ class TodayWeatherCard extends StatelessWidget {
     required this.weather,
   });
 
+  Icon _retIcon(String sky) {
+    if(sky=="Rain") {
+      return Icon(Icons.cloudy_snowing, size: 64,);
+    } 
+    if(sky=="Clouds") {
+      return Icon(Icons.cloud, size: 64,);
+    }
+    return Icon(Icons.nights_stay, size: 64,);
+  }
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -28,11 +37,11 @@ class TodayWeatherCard extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    "$temperature F",
+                    "${temperature.toStringAsFixed(2)} C",
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 16),
-                  Icon(Icons.cloud, size: 64),
+                  _retIcon(weather),
                   SizedBox(height: 16),
                   Text(weather, style: TextStyle(fontSize: 20)),
                 ],
