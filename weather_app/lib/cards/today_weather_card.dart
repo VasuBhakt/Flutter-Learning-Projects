@@ -5,21 +5,36 @@ import 'package:flutter/material.dart';
 class TodayWeatherCard extends StatelessWidget {
   final double temperature;
   final String weather;
+  final String time;
   const TodayWeatherCard({
     super.key,
     required this.temperature,
     required this.weather,
+    required this.time,
   });
 
   Icon _retIcon(String sky) {
-    if(sky=="Rain") {
-      return Icon(Icons.cloudy_snowing, size: 64,);
-    } 
-    if(sky=="Clouds") {
-      return Icon(Icons.cloud, size: 64,);
+    if (sky == "Rain") {
+      return Icon(Icons.cloudy_snowing, size: 64);
     }
-    return Icon(Icons.nights_stay, size: 64,);
+    if (sky == "Clouds") {
+      return Icon(Icons.cloud, size: 64);
+    }
+    double hour = double.parse(time.split(":")[0]);
+    if (hour >= 6 && hour <= 18) {
+      if (sky == "Clear") {
+        return Icon(Icons.wb_sunny, size: 64);
+      } else {
+        return Icon(Icons.foggy, size: 64);
+      }
+    }
+    if (sky == "Clear") {
+      return Icon(Icons.nights_stay, size: 64);
+    } else {
+      return Icon(Icons.foggy, size: 64);
+    }
   }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(

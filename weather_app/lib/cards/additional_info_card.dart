@@ -4,12 +4,14 @@ class AdditionalInfoCard extends StatelessWidget {
   final String attribute;
   final double value;
   final Icon icon;
+  final String additional;
 
   const AdditionalInfoCard({
     super.key,
     required this.attribute,
     required this.value,
     required this.icon,
+    required this.additional,
   });
 
   @override
@@ -30,7 +32,7 @@ class AdditionalInfoCard extends StatelessWidget {
               const SizedBox(height: 16),
               icon,
               const SizedBox(height: 16),
-              Text(value.toStringAsFixed(2), style: TextStyle(fontSize: 16)),
+              Text("${value.toStringAsFixed(2)} $additional", style: TextStyle(fontSize: 16)),
             ],
           ),
         ),
