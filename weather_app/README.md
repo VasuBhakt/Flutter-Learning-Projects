@@ -1,7 +1,5 @@
 # weather_app
 
-# WeatherApp - Flutter
-
 A **Flutter Weather App** that fetches current weather and 3-hour interval forecasts for multiple cities using the OpenWeatherMap API. The app displays  information including temperature, sky condition, humidity, wind speed, and "feels like" temperature. Users can select cities from a dropdown and refresh data on demand.
 
 ---
