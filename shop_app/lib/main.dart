@@ -12,8 +12,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(useMaterial3: true),
-      home: HomePage(),
+      theme: ThemeData(
+        useMaterial3: true,
+        fontFamily: 'Lato',
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color.fromRGBO(254, 206, 1, 1),
+          primary: Color.fromRGBO(254, 206, 1, 1),
+        ),
+        inputDecorationTheme: const InputDecorationTheme(
+          hintStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        )
+      ),
+      home: const HomePage(),
     );
   }
 }
