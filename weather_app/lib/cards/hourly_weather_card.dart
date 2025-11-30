@@ -48,7 +48,7 @@ class HourlyWeatherCard extends StatelessWidget {
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
-                  Text("${temperature.toStringAsFixed(2)}", style: TextStyle(fontSize: 12)),
+                  Text("${temperature.toStringAsFixed(2)} C", style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),

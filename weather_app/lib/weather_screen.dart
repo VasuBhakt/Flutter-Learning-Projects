@@ -33,7 +33,14 @@ class WeatherScreen extends StatefulWidget {
 
 class _WeatherScreenState extends State<WeatherScreen> {
   double temp = 0;
-  List<String> cities = [' ','Kolkata', 'Delhi', 'Mumbai', 'Chennai', 'Bengaluru'];
+  List<String> cities = [
+    ' ',
+    'Kolkata',
+    'Delhi',
+    'Mumbai',
+    'Chennai',
+    'Bengaluru',
+  ];
   String cityName = 'Kolkata';
   Future<Map<String, dynamic>> weatherFuture = Future.value({});
 
@@ -72,6 +79,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
   Future<Map<String, dynamic>> getWeatherData() async {
     final results = await Future.wait([getCurrentWeather(), getForecast()]);
+    print("$cityName weather data fetched");
     return {'current': results[0], 'forecast': results[1]['list']};
   }
 
@@ -169,34 +177,24 @@ class _WeatherScreenState extends State<WeatherScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(
+                  height: 30,
+
+                  child: Center(
+                    child: Text(
+                      cityName,
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
                 TodayWeatherCard(
                   temperature: kToC(currentTemp),
                   weather: currentSky,
                   time: DateFormat.Hm().format(now),
-                ),
-                const SizedBox(height: 16),
-                const Text(
-                  "Hourly Forecast",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 10),
-
-                // HOURLY FORECAST
-                SizedBox(
-                  height: 165,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: nextSixForecasts.length,
-                    itemBuilder: (context, index) {
-                      final item = nextSixForecasts[index];
-                      final dt = DateTime.parse(item['dt_txt']);
-                      return HourlyWeatherCard(
-                        time: DateFormat.Hm().format(dt),
-                        weather: (item['weather'][0]['main']),
-                        temperature: kToC((item['main']['temp']).toDouble()),
-                      );
-                    },
-                  ),
                 ),
                 const SizedBox(height: 16),
                 const Text(
@@ -227,6 +225,29 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         additional: "C",
                       ),
                     ],
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  "Hourly Forecast",
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 10),
+                // HOURLY FORECAST
+                SizedBox(
+                  height: 165,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: nextSixForecasts.length,
+                    itemBuilder: (context, index) {
+                      final item = nextSixForecasts[index];
+                      final dt = DateTime.parse(item['dt_txt']);
+                      return HourlyWeatherCard(
+                        time: DateFormat.Hm().format(dt),
+                        weather: (item['weather'][0]['main']),
+                        temperature: kToC((item['main']['temp']).toDouble()),
+                      );
+                    },
                   ),
                 ),
               ],
