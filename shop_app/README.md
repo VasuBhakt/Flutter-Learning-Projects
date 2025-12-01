@@ -1,16 +1,34 @@
 # shop_app
 
-A new Flutter project.
+Built a responsive Flutter e-commerce UI showcasing a shoe collection with filtering, product details, size selection, and cart management, using Provider for state management
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+### Product Listing
+Displays shoes with title, price, and image.
 
-A few resources to get you started if this is your first Flutter project:
+### Responsive design:
+- ListView for mobile (<650 px width)
+- GridView for web/tablet
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Product Filtering
+Filter shoes by brand: All, Adidas, Nike, Bata
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Search Bar (UI Only)
+A search input prepared for future functionality.
+
+### Product Details Page
+- Shows full shoe details.
+- Allows selecting size via chips.
+- Highlights selected size visually.
+
+### Cart System
+- Add items to cart using Provider state management.
+- Cart stores:
+  - title
+  - image
+  - price
+- Snackbar feedback for actions (added or no size selected).
+📱 Responsive Layout
+
+Automatically adjusts UI between mobile and web/tablet screens.
