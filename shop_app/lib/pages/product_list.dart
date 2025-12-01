@@ -89,6 +89,9 @@ class _ProductListState extends State<ProductList> {
                 itemCount: products.length,
                 itemBuilder: (context, index) {
                   final product = products[index];
+                  if(product['company'] != selectedFilter && selectedFilter != 'All') {
+                    return SizedBox.shrink();
+                  }
                   return GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(

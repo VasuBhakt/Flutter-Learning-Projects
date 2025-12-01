@@ -21,10 +21,11 @@ final products = [
         'price':1500.00,
         'sizes':[8,9,10,11],
         'imageUrl' : 'assets/images/bata-shoes.png',
+        'company' : 'Bata',
     },
 ];
 
-final cart = [
+/*final cart = [
     {
         'id':1,
         'title':'Adidas Sports Shoes',
@@ -34,4 +35,4 @@ final cart = [
         'company':'Adidas',
         'size':10,
     }
-];
+];*/

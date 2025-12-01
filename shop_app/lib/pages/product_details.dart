@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_app/provider/cart_provider.dart';
 
 class ProductDetails extends StatefulWidget {
   final Map<String, Object> product;
@@ -11,6 +13,38 @@ class ProductDetails extends StatefulWidget {
 
 class _ProductDetailsState extends State<ProductDetails> {
   late int selectedSize;
+
+  void onTap() {
+    final messenger = ScaffoldMessenger.of(context);
+
+    messenger.hideCurrentSnackBar();
+    messenger.clearSnackBars();
+    if (selectedSize != 0) {
+      Provider.of<CartProvider>(context, listen: false).addToCart({
+        'id': widget.product['id']!,
+        'title': widget.product['title']!,
+        'price': widget.product['price']!,
+        'imageUrl': widget.product['imageUrl']!,
+        'company': widget.product['company']!,
+        'size': selectedSize,
+      });
+      messenger.showSnackBar(
+        const SnackBar(
+          duration: Duration(seconds: 2),
+          content: Text("Product added to cart successfully!", style: TextStyle(fontWeight: FontWeight.bold),)
+        )
+      );
+    } else {
+      messenger.showSnackBar(
+        const SnackBar(
+          duration: Duration(seconds: 2),
+          content: Text("Please select a size", style: TextStyle(fontWeight: FontWeight.bold),)
+        )
+      );
+    }
+
+    //print("Add to cart pressed");
+  }
 
   @override
   void initState() {
@@ -44,13 +78,13 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
             child: Column(
               children: [
-                 Padding(
-                   padding: const EdgeInsets.all(16.0),
-                   child: Text(
-                      "Rs. ${widget.product['price'].toString()}",
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                 ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    "Rs. ${widget.product['price'].toString()}",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ),
                 //const SizedBox(height: 10),
                 SizedBox(
                   height: 50,
@@ -58,7 +92,8 @@ class _ProductDetailsState extends State<ProductDetails> {
                     scrollDirection: Axis.horizontal,
                     itemCount: (widget.product['sizes'] as List<int>).length,
                     itemBuilder: (context, index) {
-                      final size = (widget.product['sizes'] as List<int>)[index];
+                      final size =
+                          (widget.product['sizes'] as List<int>)[index];
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: GestureDetector(
@@ -68,9 +103,15 @@ class _ProductDetailsState extends State<ProductDetails> {
                             });
                           },
                           child: Chip(
-                            label: Text(size.toString(), style: TextStyle(fontWeight: FontWeight.bold),),
-                            color: WidgetStatePropertyAll((selectedSize == size) ? Theme.of(context).colorScheme.primary : Colors.white),
-                            
+                            label: Text(
+                              size.toString(),
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            color: WidgetStatePropertyAll(
+                              (selectedSize == size)
+                                  ? Theme.of(context).colorScheme.primary
+                                  : Colors.white,
+                            ),
                           ),
                         ),
                       );
@@ -81,14 +122,23 @@ class _ProductDetailsState extends State<ProductDetails> {
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: onTap,
                     style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(Theme.of(context).colorScheme.primary),
+                      backgroundColor: WidgetStatePropertyAll(
+                        Theme.of(context).colorScheme.primary,
+                      ),
                     ),
-                    label: Text("Add to cart", style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),),
-                    icon: Icon(Icons.shopping_cart, color: Colors.black,),
+                    label: Text(
+                      "Add to cart",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    icon: Icon(Icons.shopping_cart, color: Colors.black),
                   ),
-                )
+                ),
               ],
             ),
           ),
