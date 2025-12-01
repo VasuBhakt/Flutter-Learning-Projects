@@ -14,4 +14,4 @@ Video : https://www.youtube.com/watch?v=CzRQ9mnmh44&t=34832s
 
 ## Overall Experience
 
-Very enriching, probably one of the best Flutter resources out there, and definitely a good starting point for someone new to Dart and Flutter! Really went in-depth with Dart, and then Flutter concepts, which clears concepts like state management for newbies. Gave examples through practical examples to show which were the wrong ways to do it, which was really effective in figuring out the right way! Kudos!
+Very enriching, probably one of the best Flutter resources out there, and definitely a good starting point for someone new to Dart and Flutter! Rivaan went in-depth with Dart, and then Flutter, which clears concepts like state management for newbies. Also gave examples through practical examples to show which were the wrong ways to do it, which was really effective in figuring out the right way! 
