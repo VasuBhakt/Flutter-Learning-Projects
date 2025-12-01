@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/pages/global_variables.dart';
-import 'package:shop_app/pages/product_card.dart';
+import 'package:shop_app/pages/cart_page.dart';
+import 'package:shop_app/pages/product_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,81 +10,32 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<String> filters = const ['All', 'Adidas', 'Nike', 'Bata'];
-  late String selectedFilter;
+  int currentPage = 0;
 
-  @override
-  void initState() {
-    super.initState();
-    selectedFilter = filters[0];
-  }
+  List<Widget> pages = const [ProductList(), CartPage()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Text(
-                    "Shoes\nCollection",
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                ),
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search",
-                      suffixIcon: Icon(Icons.search_sharp),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 60,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  final filter = filters[index];
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedFilter = filter;
-                        });
-                      },
-                      child: Chip(
-                        backgroundColor: selectedFilter == filter ? Theme.of(context).colorScheme.primary : Colors.grey[300],
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                        label: Text(filter),
-                        labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                        side : BorderSide(),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                      ),
-                    ),
-                  );
-                },
-                itemCount: filters.length,
-              ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: products.length,
-                itemBuilder: (context, index) {
-                  final product = products[index];
-                  return ProductCard(title: product['title'].toString(), price: product['price'].toString(), imageUrl: product['imageUrl'].toString());
-                }
-              ),
-            )
-          ],
-        ),
+      body: IndexedStack(
+        index: currentPage,
+        children : pages,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        iconSize: 30,
+        onTap: (value) {
+          setState(() {
+            currentPage = value;
+          });
+        },
+        currentIndex: currentPage,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: "Cart",
+          ),
+        ],
       ),
     );
   }

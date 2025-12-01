@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/pages/global_variables.dart';
 import 'package:shop_app/pages/home_page.dart';
-import 'package:shop_app/pages/product_details.dart';
-
 void main() {
   runApp(const MyApp());
 }

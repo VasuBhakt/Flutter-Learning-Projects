@@ -1,7 +1,7 @@
 final products = [
     {
         'id':0,
-        'title':'Nike Shoes',
+        'title':'Nike Sports Shoes',
         'price':3999.00,
         'sizes':[8,9,10,11],
         'imageUrl' : 'assets/images/nike-shoes.png',
@@ -9,7 +9,7 @@ final products = [
     },
     {
         'id':1,
-        'title':'Adidas Sports Shoes',
+        'title':'Adidas Superstar',
         'price':4100.00,
         'sizes':[8,9,10,11],
         'imageUrl' : 'assets/images/adidas-shoes.png',
@@ -32,5 +32,6 @@ final cart = [
         'sizes':[8,9,10,11],
         'imageUrl' : 'assets/images/adidas-shoes.png',
         'company':'Adidas',
+        'size':10,
     }
 ];
