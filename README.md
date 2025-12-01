@@ -6,11 +6,11 @@ Video : https://www.youtube.com/watch?v=CzRQ9mnmh44&t=34832s
 
 ## Projects and Learnings
 
-1) **Currency Converter** - A basic currency converter app which converts USD to INR. Learnt basics of Flutter.
+1) <a href="https://github.com/VasuBhakt/Flutter-Learning-Projects/tree/main/currency_convert">**Currency Converter**</a> - A basic currency converter app which converts USD to INR. Learnt basics of Flutter.
 
-2) **weather_app** - A basic weather app which shows the real time weather data for a city selected by user, using <a href="https://openweathermap.org/">OpenWeatherMap</a> API. Learnt API integration in Flutter, and working with seperation of components for better structure
+2) <a href="https://github.com/VasuBhakt/Flutter-Learning-Projects/tree/main/weather_app">**weather_app**</a> - A basic weather app which shows the real time weather data for a city selected by user, using <a href="https://openweathermap.org/">OpenWeatherMap</a> API. Learnt API integration in Flutter, and working with seperation of components for better structure
 
-3) **shop_app** - An ecommerce platform UI which allows users to filter shoes and add or remove from cart. Learnt about important topics like state management, Layout Builder and a lot more!
+3) <a href="https://github.com/VasuBhakt/Flutter-Learning-Projects/tree/main/shop_app">**shop_app**</a> - An ecommerce platform UI which allows users to filter shoes and add or remove from cart. Learnt about important topics like state management, Layout Builder and a lot more!
 
 ## Overall Experience
 
