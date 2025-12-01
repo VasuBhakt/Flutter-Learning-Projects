@@ -24,6 +24,7 @@ class _ProductListState extends State<ProductList> {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return SafeArea(
         child: Column(
           children: [
@@ -85,7 +86,7 @@ class _ProductListState extends State<ProductList> {
               ),
             ),
             Expanded(
-              child: ListView.builder(
+              child: (screenSize.width < 650) ?  ListView.builder(
                 itemCount: products.length,
                 itemBuilder: (context, index) {
                   final product = products[index];
@@ -109,8 +110,33 @@ class _ProductListState extends State<ProductList> {
                     ),
                   );
                 },
-              ),
-            ),
+              )
+             : GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio: 1.5), 
+                itemCount: products.length,
+                itemBuilder: (context, index) {
+                  final product = products[index];
+                  if(product['company'] != selectedFilter && selectedFilter != 'All') {
+                    return SizedBox.shrink();
+                  }
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ProductDetails(product: product);
+                          },
+                        ),
+                      );
+                    },
+                    child: ProductCard(
+                      title: product['title'].toString(),
+                      price: product['price'].toString(),
+                      imageUrl: product['imageUrl'].toString(),
+                    ),
+                  );
+                },
+                ))
           ],
         ),
       );

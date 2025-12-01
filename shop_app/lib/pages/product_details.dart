@@ -67,7 +67,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           const Spacer(),
           Image.asset(
             widget.product['imageUrl'].toString(),
-            //height: 400,
+            height: 300,
           ),
           const Spacer(flex: 2),
           Container(
