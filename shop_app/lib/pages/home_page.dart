@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/global_variables.dart';
+import 'package:shop_app/pages/product_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -29,7 +31,7 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(20.0),
                   child: Text(
                     "Shoes\nCollection",
-                    style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
                 Expanded(
@@ -72,6 +74,15 @@ class _HomePageState extends State<HomePage> {
                 itemCount: filters.length,
               ),
             ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: products.length,
+                itemBuilder: (context, index) {
+                  final product = products[index];
+                  return ProductCard(title: product['title'].toString(), price: product['price'].toString(), imageUrl: product['imageUrl'].toString());
+                }
+              ),
+            )
           ],
         ),
       ),

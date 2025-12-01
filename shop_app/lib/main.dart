@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/pages/global_variables.dart';
 import 'package:shop_app/pages/home_page.dart';
+import 'package:shop_app/pages/product_details.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,14 +22,18 @@ class MyApp extends StatelessWidget {
           primary: Color.fromRGBO(254, 206, 1, 1),
         ),
         inputDecorationTheme: const InputDecorationTheme(
-          hintStyle: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
-        )
+          hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        ),
+        textTheme: TextTheme(
+          titleMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          bodySmall: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          titleLarge: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+        ),
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(fontSize: 20, color: Colors.black),
+        ),
       ),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
-  
